@@ -15,6 +15,7 @@ import { WcTeamsComponent } from './containers/wc-teams/wc-teams.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { StartersComponent } from './components/starters/starters.component';
 import { BenchComponent } from './components/bench/bench.component';
+import { ReportsComponent } from './containers/reports/reports.component';
 
 @NgModule({
     declarations : [
@@ -23,10 +24,11 @@ import { BenchComponent } from './components/bench/bench.component';
         LineUpComponent,
         StartersComponent,
         BenchComponent,
-        WcTeamsComponent
+        WcTeamsComponent,
+        ReportsComponent
     ],
     imports : [
-        CommonModule,
+    CommonModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebase)
     ],
