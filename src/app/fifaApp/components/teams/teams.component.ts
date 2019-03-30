@@ -7,10 +7,11 @@ import { teamIn } from 'src/app/models/interfaces';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent implements OnInit {
-  @Input() teams: teamIn[] ;
-  constructor() { }
-
+  @Input() teams: teamIn[];
+  constructor() {}
   ngOnInit() {
   }
-
+  getLineUp(idTeam){
+    
+  }
 }

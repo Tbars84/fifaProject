@@ -9,23 +9,33 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { GetTeamsSrv } from '../services/teamSrv';
 // COMPONENTS
 import { FifaDashboardComponent } from './containers/fifa-dashboard/fifa-dashboard.component';
+import { LineUpComponent } from './containers/line-up/line-up.component';
+import { WcTeamsComponent } from './containers/wc-teams/wc-teams.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { StartersComponent } from './components/starters/starters.component';
+import { BenchComponent } from './components/bench/bench.component';
 
 @NgModule({
     declarations : [
         FifaDashboardComponent,
-        TeamsComponent
+        TeamsComponent,
+        LineUpComponent,
+        StartersComponent,
+        BenchComponent,
+        WcTeamsComponent
     ],
     imports : [
     CommonModule,
-    AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
-
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebase)
     ],
     exports : [
         FifaDashboardComponent
     ],
-    providers: [AngularFirestore , GetTeamsSrv]
+    providers: [
+        AngularFirestore,
+        GetTeamsSrv
+    ]
 })
 
 export class ChallengeDashboardModule{}

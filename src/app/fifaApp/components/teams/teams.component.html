@@ -14,15 +14,15 @@
             <li class="list-group-item">Receive Goals: {{team.goalsReceive}}</li>
             </ul>
             <div class="card-body text-center">
-            <button  class="btn btn-success">Team Line-ups</button>
+            <a routerLink="/lineUp/{{team.id}}" class="btn btn-success">Team Line-ups</a>
             </div>
         </div>
         <ng-template #noteams>
             <div class="alert alert-primary" role="alert">
                 <p>
                     There are no teams added yet.
-                </p>            
-            </div>            
+                </p>
+            </div>
         </ng-template>
     </div>
 </div>
