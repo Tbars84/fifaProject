@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row justify-content-around" *ngIf="teams.length > 0; else noteams">
+    <div class="row justify-content-around" *ngIf="teams?.length > 0; else noteams">
         <div
         *ngFor="let team of teams"
         class="card"
