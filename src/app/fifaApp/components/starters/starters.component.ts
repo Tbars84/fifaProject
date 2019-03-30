@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { playerMembersIn } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-starters',
@@ -6,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./starters.component.scss']
 })
 export class StartersComponent implements OnInit {
-
+  @Input() lineUpSt: playerMembersIn[];
   constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

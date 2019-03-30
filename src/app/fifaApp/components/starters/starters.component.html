@@ -2,7 +2,7 @@
   <div class="row">
     <h3>Starters</h3>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="lineUpSt.length > 0; else loadingLineUp">
       <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -14,14 +14,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>GoalKeeper</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
+            <tr *ngFor="let pl of lineUpSt">
+              <th>{{pl.rol}}</th>
+              <td>{{pl.name}}</td>
+              <td>{{pl.lastName}}</td>
+              <td>{{pl.age}}</td>
+              <td>{{pl.nationality}}</td>
             </tr>
           </tbody>
         </table>
-  </div>
+      </div>
+      <ng-template #loadingLineUp>
+          <div class="alert alert-primary" role="alert">
+              <p>
+                  Loading Players.
+              </p>
+          </div>
+      </ng-template>        
 </div>

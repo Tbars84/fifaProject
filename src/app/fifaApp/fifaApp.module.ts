@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 // SERVICES
 import { GetTeamsSrv } from '../services/teamSrv';
+import { GetPlayerSrv } from '../services/playersSrv';
 // COMPONENTS
 import { FifaDashboardComponent } from './containers/fifa-dashboard/fifa-dashboard.component';
 import { LineUpComponent } from './containers/line-up/line-up.component';
@@ -25,7 +26,7 @@ import { BenchComponent } from './components/bench/bench.component';
         WcTeamsComponent
     ],
     imports : [
-    CommonModule,
+        CommonModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebase)
     ],
@@ -34,7 +35,8 @@ import { BenchComponent } from './components/bench/bench.component';
     ],
     providers: [
         AngularFirestore,
-        GetTeamsSrv
+        GetTeamsSrv,
+        GetPlayerSrv
     ]
 })
 

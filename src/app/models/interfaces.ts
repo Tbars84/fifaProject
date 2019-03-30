@@ -8,18 +8,18 @@ export interface teamIn {
 }
 
 export interface teamMembersIn{
-    id?: boolean,
+    id?: string,
     name: string,
     lastName: string,
     birth?: string,
     age: string,
     nationality?: string,
     rol: string, 
-    teamId: number,
+    teamId: string,
 }
 
 export interface playerMembersIn extends teamMembersIn{
     pictUrl: string,
-    titular: boolean
+    titular: boolean | undefined,
     numberShirt: string
 }
