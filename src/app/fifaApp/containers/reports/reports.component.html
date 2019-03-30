@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Registered Teams</th>
+              <td>{{ numberTeams }}</td>
+            </tr>
+            <tr>
+              <th>Total number of Players</th>
+              <td>{{ numberPlrs }}</td>
+            </tr>
+            <tr>
+              <th>Youngest Player Age</th>
+              <td>{{ youngestPlr }}</td>
+            </tr>
+            <tr>
+              <th>Oldest Player Age</th>
+              <td>{{ oldestPlr }}</td>
+            </tr>
+            <tr>
+                <th>Average Age</th>
+                <td>{{ avNum | number : '1.2-2'}}</td>
+            </tr>
+            <tr>
+                <th>Oldest coach Age</th>
+                <td>{{ oldestCh }}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="row">
+    <a routerLink="" class="btn btn-success">Go Back</a>    
+  </div>
+</div>
