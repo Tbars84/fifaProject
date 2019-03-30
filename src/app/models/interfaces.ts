@@ -12,7 +12,7 @@ export interface teamMembersIn{
     name: string,
     lastName: string,
     birth?: string,
-    age: string,
+    age: number,
     nationality?: string,
     rol: string, 
     teamId: string,

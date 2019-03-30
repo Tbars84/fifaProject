@@ -26,4 +26,27 @@ export class GetPlayerSrv {
             }))
     }
 
+    getAllPlayers() {
+        return this.pls = this.plColl.snapshotChanges()
+            .pipe(map(actions =>{
+                return actions.map(a =>{
+                    const data = a.payload.doc.data() as playerMembersIn;
+                    data.id = a.payload.doc.id
+                    return data
+                })
+            }))
+    }
+    getCouches() {
+        return this.pls = this.plColl.snapshotChanges()
+            .pipe(map(actions =>{
+                return actions.map(a =>{
+                    const data = a.payload.doc.data() as playerMembersIn;
+                    data.id = a.payload.doc.id
+                    if(data.rol === 'coach'){
+                        return data
+                    }
+                })
+            }))
+    }
+
 }
