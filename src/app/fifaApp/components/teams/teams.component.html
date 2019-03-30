@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row justify-content-around" *ngIf="teams.length > 0; else noteams">
+        <div
+        *ngFor="let team of teams"
+        class="card"
+        >
+            <img [src]="team.flagUrl" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{team.name}} ({{team.shortName}}) </h5>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Scored Goals:  {{team.goalsScored}}</li>
+            <li class="list-group-item">Receive Goals: {{team.goalsReceive}}</li>
+            </ul>
+            <div class="card-body text-center">
+            <button  class="btn btn-success">Team Line-ups</button>
+            </div>
+        </div>
+        <ng-template #noteams>
+            <div class="alert alert-primary" role="alert">
+                <p>
+                    There are no teams added yet.
+                </p>            
+            </div>            
+        </ng-template>
+    </div>
+</div>
