@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fifa-dashboard.component.scss']
 })
 export class FifaDashboardComponent implements OnInit {
-
   constructor() { }
   ngOnInit() {}
-
 }
