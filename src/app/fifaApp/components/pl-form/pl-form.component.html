@@ -1,3 +1,33 @@
-<p>
-  pl-form works!
-</p>
+<div class="container">
+  <hr >
+  <h2>Add Players</h2>
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <label for="namePl">Name</label>
+          <input type="email" class="form-control" id="namePl" aria-describedby="emailHelp" placeholder="Enter Name(s)">
+        </div>
+        <div class="form-group">
+            <label for="lastNamePl">Lastname</label>
+            <input type="email" class="form-control" id="lastNamePl" aria-describedby="emailHelp" placeholder="Enter Lastname(s)">
+        </div>
+        <div class="form-group">
+          <label for="plAge">Age</label>
+          <input type="number" class="form-control" id="plAge" placeholder="Age">
+        </div>
+        <div class="form-group">
+            <label for="rolPl">Position</label>
+            <input type="text" class="form-control" id="rolPl" aria-describedby="emailHelp" placeholder="Enter Position in the Field">
+        </div>        
+        <div class="form-group">
+            <input type="text" class="form-control" id="teamId" hidden>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Player</button>
+      </form>
+    </div>
+    <div class="col">
+      List of Players
+    </div>
+  </div>
+</div>
