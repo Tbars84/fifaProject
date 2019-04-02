@@ -3,11 +3,7 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Select Country</label>
       <select (change)="onCountryChange($event)" class="form-control" id="exampleFormControlSelect1">
-        <option *ngFor="let country of countriesFinder" 
-          value="{{country.name}}" 
-          srFlag="country.alpha2Code"
-          srName="country.alpha2Code"
-          >
+        <option *ngFor="let country of countriesFinder" value="{{country.name}}">
           {{country.name}} - {{country.alpha2Code}}
         </option>
       </select>

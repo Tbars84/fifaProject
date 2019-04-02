@@ -49,4 +49,12 @@ export class GetPlayerSrv {
             }))
     }
 
+    addTeam(plData){        
+        return new Promise((resp , err)=>{
+            this.plColl.add(plData).then((res)=>{
+                resp('success')
+            })
+        })
+    }
+
 }

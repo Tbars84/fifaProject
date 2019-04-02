@@ -19,7 +19,6 @@ export class AddDataComponent implements OnInit {
     })
   }
   onCountryChange(e){
-    // e.target.setAttribute("disabled", "disabled");
     this.countriesFinder.map((country)=> {
       if (country.name === e.target.value) {
         this.saveCountry = {
@@ -27,18 +26,16 @@ export class AddDataComponent implements OnInit {
           "flagUrl": `https://www.countryflags.io/${country.alpha2Code}/flat/64.png`,
           "shortName": country.alpha3Code
         }
-        this._teamSrv.addTeam(this.saveCountry)
-        .then(id => {
+        this._teamSrv.addTeam(this.saveCountry).then(id => {
           this.selectedTeam = [
             country.name,  
             country.alpha3Code ,  
             `https://www.countryflags.io/${country.alpha2Code}/flat/64.png` ,
-            id
-          ]
-        })
-        .catch(err =>{
+            id]
+            e.target.setAttribute("disabled", "disabled");
+          }).catch(err =>{
             console.log(err)
-        })
+          })
       }
     })
   }

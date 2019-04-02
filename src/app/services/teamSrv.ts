@@ -21,9 +21,6 @@ export class GetTeamsSrv {
     getCountries(){
         let countries;
         return this._http.get('https://restcountries.eu/rest/v2/all')
-        // return this._http.get('https://restcountries.eu/rest/v2/all').subscribe(data => {
-        //     console.log(data);
-        // })
     }
     getTeams() {
         return this.teams = this.teamColl.snapshotChanges()
@@ -35,7 +32,6 @@ export class GetTeamsSrv {
                 })
             }))
     }
-
     addTeam(teamObj): Promise<string>{
         return new Promise((resp , err)=>{
             this.teamColl.add(teamObj).then((res)=>{
