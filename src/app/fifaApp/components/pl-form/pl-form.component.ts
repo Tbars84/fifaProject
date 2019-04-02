@@ -14,8 +14,11 @@ export class PlFormComponent implements OnInit {
   plList= [];
   constructor(private _plSrv: GetPlayerSrv) { }
   ngOnInit() {
-    this.plList.push( this._plSrv.getPlayers(this.infoTeam[3]) );
+     this._plSrv.getPlayers(this.infoTeam[3]).subscribe(pl =>{
+      this.plList.push(pl)
+    })
     console.log(this.plList)
+
   }
   savePlayer(e) {
     e.preventDefault();
@@ -37,7 +40,6 @@ export class PlFormComponent implements OnInit {
     this._plSrv.addTeam(this.plData).then((response)=>{
       if(response == 'success'){
         formTarget.reset()
-        this.plList.push( this._plSrv.getPlayers(this.infoTeam[3]) );
       }
     })
   }
