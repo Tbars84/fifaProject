@@ -1,7 +1,8 @@
 
 import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 import { AngularFirestore , AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { teamIn } from '../models/interfaces'
 
@@ -9,11 +10,20 @@ import { teamIn } from '../models/interfaces'
 export class GetTeamsSrv {
     teamColl: AngularFirestoreCollection;
     teams: Observable<teamIn[]>;
-
-    constructor(private _afs: AngularFirestore) {
+    countriesColl:any;
+    constructor(
+        private _afs: AngularFirestore,
+        private _http: HttpClient
+        ) {
         this.teamColl = this._afs.collection(`teams`)
     }
-
+    getCountries(){
+        let countries;
+        return this._http.get('https://restcountries.eu/rest/v2/all')
+        // return this._http.get('https://restcountries.eu/rest/v2/all').subscribe(data => {
+        //     console.log(data);
+        // })
+    }
     getTeams() {
         return this.teams = this.teamColl.snapshotChanges()
             .pipe(map(actions =>{

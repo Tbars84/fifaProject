@@ -8,10 +8,10 @@ import { GetTeamsSrv } from '../../../services/teamSrv';
 })
 export class WcTeamsComponent implements OnInit {
   dataTeam = [];
-  constructor(private teamSrv: GetTeamsSrv) { }
+  constructor(private _teamSrv: GetTeamsSrv) { }
 
   ngOnInit() {
-    this.teamSrv.getTeams().subscribe(res => {
+    this._teamSrv.getTeams().subscribe(res => {
       this.dataTeam = res
     })
   }

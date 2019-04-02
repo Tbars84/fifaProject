@@ -1,3 +1,32 @@
-<p>
-  add-data works!
-</p>
+<div class="container" *ngIf="countriesFinder.length > 0; else loadingContries">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Select Country</label>
+      <select (change)="onCountryChange($event)" class="form-control" id="exampleFormControlSelect1">
+        <option *ngFor="let country of countriesFinder" 
+          value="{{country.name}}" 
+          srFlag="country.alpha2Code"
+          srName="country.alpha2Code"
+          >
+          {{country.name}} - {{country.alpha2Code}}
+        </option>
+      </select>
+    </div>
+  </form>
+  <div class="teamSelected" *ngIf="selectedTeam">
+    <div class="name">{{selectedTeam[0]}} ({{selectedTeam[1]}}) </div>
+    <img [src]="selectedTeam[2]" class="" alt="...">
+  </div>
+  <a routerLink="" class="btn btn-success">Go Back</a>
+</div>
+
+<ng-template #loadingLineUp>
+  <div class="container">
+    <a routerLink="" class="btn btn-success">Go Back</a>
+    <div class="alert alert-primary" role="alert">
+        <p>
+            Loading Countries!
+        </p>
+    </div>
+  </div>
+</ng-template>  

@@ -1,7 +1,7 @@
 export interface teamIn {
     id?: string,
     name: number,
-    shortName?: string,
+    shortName: string,
     flagUrl: string,
     goalsScored?: number,
     goalsReceive?: number,
