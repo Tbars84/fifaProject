@@ -16,7 +16,7 @@
   <div class="teamSelected" *ngIf="selectedTeam">
     <div class="name">{{selectedTeam[0]}} ({{selectedTeam[1]}}) </div>
     <img [src]="selectedTeam[2]" class="" alt="...">
-    <app-pl-form></app-pl-form>
+    <app-pl-form [infoTeam]="selectedTeam" ></app-pl-form>
   </div>
   <hr />
   <br>

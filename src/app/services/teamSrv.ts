@@ -10,6 +10,7 @@ import { teamIn } from '../models/interfaces'
 export class GetTeamsSrv {
     teamColl: AngularFirestoreCollection;
     teams: Observable<teamIn[]>;
+    singleTeam: any;
     countriesColl:any;
     constructor(
         private _afs: AngularFirestore,
@@ -34,7 +35,12 @@ export class GetTeamsSrv {
                 })
             }))
     }
-    addTeam(teamObj){
-        this.teamColl.add(teamObj)
+
+    addTeam(teamObj): Promise<string>{
+        return new Promise((resp , err)=>{
+            this.teamColl.add(teamObj).then((res)=>{
+                resp(res.id)
+            })
+        })
     }
 }

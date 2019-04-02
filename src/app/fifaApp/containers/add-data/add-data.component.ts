@@ -8,7 +8,7 @@ import { GetTeamsSrv } from '../../../services/teamSrv';
 })
 export class AddDataComponent implements OnInit {
   countriesFinder:any;
-  saveConutry: Object;
+  saveCountry: Object;
   selectedTeam: string[];
 
   constructor(private _teamSrv: GetTeamsSrv) { }
@@ -18,20 +18,28 @@ export class AddDataComponent implements OnInit {
       this.countriesFinder = data;
     })
   }
-  async onCountryChange(e){
+  onCountryChange(e){
     // e.target.setAttribute("disabled", "disabled");
-    console.log(this.selectedTeam);
-    await this.countriesFinder.map((country)=> {
+    this.countriesFinder.map((country)=> {
       if (country.name === e.target.value) {
-        this.saveConutry = {
+        this.saveCountry = {
           "name": country.name,
           "flagUrl": `https://www.countryflags.io/${country.alpha2Code}/flat/64.png`,
           "shortName": country.alpha3Code
         }
-        // this._teamSrv.addTeam(this.saveConutry)
-        this.selectedTeam = [country.name ,  country.alpha3Code ,  `https://www.countryflags.io/${country.alpha2Code}/flat/64.png`]
+        this._teamSrv.addTeam(this.saveCountry)
+        .then(id => {
+          this.selectedTeam = [
+            country.name,  
+            country.alpha3Code ,  
+            `https://www.countryflags.io/${country.alpha2Code}/flat/64.png` ,
+            id
+          ]
+        })
+        .catch(err =>{
+            console.log(err)
+        })
       }
     })
-    console.log(this.selectedTeam);
   }
 }
