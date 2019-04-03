@@ -1312,6 +1312,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fifaApp_containers_wc_teams_wc_teams_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fifaApp/containers/wc-teams/wc-teams.component */ "./src/app/fifaApp/containers/wc-teams/wc-teams.component.ts");
 /* harmony import */ var _fifaApp_containers_line_up_line_up_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./fifaApp/containers/line-up/line-up.component */ "./src/app/fifaApp/containers/line-up/line-up.component.ts");
 /* harmony import */ var _fifaApp_containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./fifaApp/containers/reports/reports.component */ "./src/app/fifaApp/containers/reports/reports.component.ts");
+/* harmony import */ var _fifaApp_containers_add_data_add_data_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./fifaApp/containers/add-data/add-data.component */ "./src/app/fifaApp/containers/add-data/add-data.component.ts");
+
 
 
 
@@ -1321,6 +1323,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', component: _fifaApp_containers_wc_teams_wc_teams_component__WEBPACK_IMPORTED_MODULE_3__["WcTeamsComponent"] },
     { path: 'reports', component: _fifaApp_containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_5__["ReportsComponent"] },
+    { path: 'addTeams', component: _fifaApp_containers_add_data_add_data_component__WEBPACK_IMPORTED_MODULE_6__["AddDataComponent"] },
     { path: 'lineUp/:id', component: _fifaApp_containers_line_up_line_up_component__WEBPACK_IMPORTED_MODULE_4__["LineUpComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -1406,8 +1409,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _fifaApp_fifaApp_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fifaApp/fifaApp.module */ "./src/app/fifaApp/fifaApp.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _fifaApp_fifaApp_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./fifaApp/fifaApp.module */ "./src/app/fifaApp/fifaApp.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+
+
 
 
 
@@ -1419,14 +1426,16 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _fifaApp_fifaApp_module__WEBPACK_IMPORTED_MODULE_3__["ChallengeDashboardModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _fifaApp_fifaApp_module__WEBPACK_IMPORTED_MODULE_5__["ChallengeDashboardModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1495,6 +1504,154 @@ var BenchComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/fifaApp/components/header/header.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/fifaApp/components/header/header.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<header>\n  <div class=\"container\">\n      <h1 class=\"text-center\" >Fifa world cup Teams</h1>\n  </div>\n  <nav class=\"nav nav-pills nav-fill\">\n          <a class=\"nav-item nav-link\" routerLink=\"/reports\">Recent reports</a>\n          <a class=\"nav-item nav-link\" routerLink=\"/addTeams\">Add Teams to World Cup</a>\n  </nav>\n</header>\n<hr />"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/header/header.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/fifaApp/components/header/header.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpZmFBcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/header/header.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/fifaApp/components/header/header.component.ts ***!
+  \***************************************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! ./header.component.html */ "./src/app/fifaApp/components/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/fifaApp/components/header/header.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], HeaderComponent);
+    return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/pl-form/pl-form.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/fifaApp/components/pl-form/pl-form.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <hr >\n  <h2>Add Players</h2>\n  <div class=\"row\">\n    <div (submit)=\"savePlayer($event)\" class=\"col\">\n      <form novalidate>\n        <div class=\"form-group\">\n          <label for=\"namePl\">Name</label>\n          <input type=\"email\" class=\"form-control\" id=\"namePl\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name(s)\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"lastNamePl\">Lastname</label>\n            <input type=\"email\" class=\"form-control\" id=\"lastNamePl\" aria-describedby=\"emailHelp\" placeholder=\"Enter Lastname(s)\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"plAge\">Age</label>\n          <input type=\"number\" class=\"form-control\" id=\"plAge\" placeholder=\"Age\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"rolPl\">Position</label>\n            <input type=\"text\" class=\"form-control\" id=\"rolPl\" aria-describedby=\"emailHelp\" placeholder=\"Enter Position in the Field\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"nationalityPl\">Nationality</label>\n            <input type=\"text\" class=\"form-control\" id=\"nationalityPl\" aria-describedby=\"emailHelp\" placeholder=\"Enter Position in the Field\">\n        </div>        \n        <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"radio\" name=\"range\" id=\"titularCheck\" value=\"true\" checked>\n            <label class=\"form-check-label\" for=\"titularCheck\">\n              Titular Player\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"radio\" name=\"range\" id=\"benchCheck\" value=\"false\">\n            <label class=\"form-check-label\" for=\"benchCheck\">\n              Bench Player\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"radio\" name=\"range\" id=\"coachChcek\" value=\"null\">\n            <label class=\"form-check-label\" for=\"coachChcek\">\n              Coach \n            </label>\n        </div>\n        <input type=\"submit\" class=\"btn btn-primary\" value=\"Add Player\" />\n      </form>\n    </div>\n    <div class=\"col\">\n      <div class=\"container\">\n        <div class=\"row\" *ngIf=\"plList.length > 0; else plListEmpty\">\n          <table class=\"table\">\n              <thead class=\"thead-dark\">\n                <tr>\n                  <th scope=\"col\">Name</th>\n                  <th scope=\"col\">Position</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let pl of plList\">\n                  <th>{{pl.rol}}</th>\n                  <td>{{pl.name}}</td>\n                </tr>\n              </tbody>\n            </table>\n        </div>\n        <ng-template #plListEmpty>\n          <div class=\"row\">\n            <div class=\"alert alert-primary\" role=\"alert\">\n                <p>\n                    Please enter the Players data.\n                </p>\n            </div>\n          </div>\n        </ng-template>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/pl-form/pl-form.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/fifaApp/components/pl-form/pl-form.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpZmFBcHAvY29tcG9uZW50cy9wbC1mb3JtL3BsLWZvcm0uY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/pl-form/pl-form.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/fifaApp/components/pl-form/pl-form.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: PlFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlFormComponent", function() { return PlFormComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_playersSrv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/playersSrv */ "./src/app/services/playersSrv.ts");
+
+
+
+var PlFormComponent = /** @class */ (function () {
+    function PlFormComponent(_plSrv) {
+        this._plSrv = _plSrv;
+        this.plList = [];
+    }
+    PlFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._plSrv.getPlayers(this.infoTeam[3]).subscribe(function (pl) {
+            _this.plList.push(pl);
+        });
+        console.log(this.plList);
+    };
+    PlFormComponent.prototype.savePlayer = function (e) {
+        e.preventDefault();
+        var formTarget = e.target;
+        var name = formTarget.querySelector('#namePl').value;
+        var lastName = formTarget.querySelector('#lastNamePl').value;
+        var age = formTarget.querySelector('#plAge').value;
+        var rol = formTarget.querySelector('#rolPl').value;
+        var nationality = formTarget.querySelector('#nationalityPl').value;
+        this.plData = {
+            'age': parseInt(age),
+            'name': name,
+            'lastName': lastName,
+            'nationality': nationality,
+            'rol': rol,
+            'teamId': this.infoTeam[3],
+            'titular': true,
+        };
+        this._plSrv.addTeam(this.plData).then(function (response) {
+            if (response == 'success') {
+                formTarget.reset();
+            }
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], PlFormComponent.prototype, "infoTeam", void 0);
+    PlFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-pl-form',
+            template: __webpack_require__(/*! ./pl-form.component.html */ "./src/app/fifaApp/components/pl-form/pl-form.component.html"),
+            styles: [__webpack_require__(/*! ./pl-form.component.scss */ "./src/app/fifaApp/components/pl-form/pl-form.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_playersSrv__WEBPACK_IMPORTED_MODULE_2__["GetPlayerSrv"]])
+    ], PlFormComponent);
+    return PlFormComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/fifaApp/components/starters/starters.component.html":
 /*!*********************************************************************!*\
   !*** ./src/app/fifaApp/components/starters/starters.component.html ***!
@@ -1548,6 +1705,62 @@ var StartersComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], StartersComponent);
     return StartersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/team-form/team-form.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/fifaApp/components/team-form/team-form.component.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  team-form works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/team-form/team-form.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/fifaApp/components/team-form/team-form.component.scss ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpZmFBcHAvY29tcG9uZW50cy90ZWFtLWZvcm0vdGVhbS1mb3JtLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/components/team-form/team-form.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/fifaApp/components/team-form/team-form.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TeamFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamFormComponent", function() { return TeamFormComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var TeamFormComponent = /** @class */ (function () {
+    function TeamFormComponent() {
+    }
+    TeamFormComponent.prototype.ngOnInit = function () {
+    };
+    TeamFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-team-form',
+            template: __webpack_require__(/*! ./team-form.component.html */ "./src/app/fifaApp/components/team-form/team-form.component.html"),
+            styles: [__webpack_require__(/*! ./team-form.component.scss */ "./src/app/fifaApp/components/team-form/team-form.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], TeamFormComponent);
+    return TeamFormComponent;
 }());
 
 
@@ -1616,6 +1829,92 @@ var TeamsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/fifaApp/containers/add-data/add-data.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/fifaApp/containers/add-data/add-data.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\" *ngIf=\"countriesFinder.length > 0; else loadingContries\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"exampleFormControlSelect1\">Select Country</label>\n      <select (change)=\"onCountryChange($event)\" class=\"form-control\" id=\"exampleFormControlSelect1\">\n        <option *ngFor=\"let country of countriesFinder\" value=\"{{country.name}}\">\n          {{country.name}} - {{country.alpha2Code}}\n        </option>\n      </select>\n    </div>\n  </form>\n  <div class=\"teamSelected\" *ngIf=\"selectedTeam\">\n    <div class=\"name\">{{selectedTeam[0]}} ({{selectedTeam[1]}}) </div>\n    <img [src]=\"selectedTeam[2]\" class=\"\" alt=\"...\">\n    <app-pl-form [infoTeam]=\"selectedTeam\" ></app-pl-form>\n  </div>\n  <hr />\n  <br>\n  <a routerLink=\"\" class=\"btn btn-success\">Go Back</a>\n</div>\n\n<ng-template #loadingLineUp>\n  <div class=\"container\">\n    <a routerLink=\"\" class=\"btn btn-success\">Go Back</a>\n    <div class=\"alert alert-primary\" role=\"alert\">\n        <p>\n            Loading Countries!\n        </p>\n    </div>\n  </div>\n</ng-template>  "
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/containers/add-data/add-data.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/fifaApp/containers/add-data/add-data.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpZmFBcHAvY29udGFpbmVycy9hZGQtZGF0YS9hZGQtZGF0YS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/fifaApp/containers/add-data/add-data.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/fifaApp/containers/add-data/add-data.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: AddDataComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddDataComponent", function() { return AddDataComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_teamSrv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/teamSrv */ "./src/app/services/teamSrv.ts");
+
+
+
+var AddDataComponent = /** @class */ (function () {
+    function AddDataComponent(_teamSrv) {
+        this._teamSrv = _teamSrv;
+    }
+    AddDataComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.countriesFinder = this._teamSrv.getCountries().subscribe(function (data) {
+            _this.countriesFinder = data;
+        });
+    };
+    AddDataComponent.prototype.onCountryChange = function (e) {
+        var _this = this;
+        this.countriesFinder.map(function (country) {
+            if (country.name === e.target.value) {
+                _this.saveCountry = {
+                    "name": country.name,
+                    "flagUrl": "https://www.countryflags.io/" + country.alpha2Code + "/flat/64.png",
+                    "shortName": country.alpha3Code
+                };
+                _this._teamSrv.addTeam(_this.saveCountry).then(function (id) {
+                    _this.selectedTeam = [
+                        country.name,
+                        country.alpha3Code,
+                        "https://www.countryflags.io/" + country.alpha2Code + "/flat/64.png",
+                        id
+                    ];
+                    e.target.setAttribute("disabled", "disabled");
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        });
+    };
+    AddDataComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-add-data',
+            template: __webpack_require__(/*! ./add-data.component.html */ "./src/app/fifaApp/containers/add-data/add-data.component.html"),
+            styles: [__webpack_require__(/*! ./add-data.component.scss */ "./src/app/fifaApp/containers/add-data/add-data.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_teamSrv__WEBPACK_IMPORTED_MODULE_2__["GetTeamsSrv"]])
+    ], AddDataComponent);
+    return AddDataComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/fifaApp/containers/fifa-dashboard/fifa-dashboard.component.html":
 /*!*********************************************************************************!*\
   !*** ./src/app/fifaApp/containers/fifa-dashboard/fifa-dashboard.component.html ***!
@@ -1623,7 +1922,7 @@ var TeamsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n    <div class=\"container\">\n        <h1 class=\"text-center\" >Fifa world cup Teams</h1>\n    </div>\n    <nav class=\"nav nav-pills nav-fill\">\n            <a class=\"nav-item nav-link\" routerLink=\"/reports\">Recent reports</a>\n    </nav>\n</header>\n<hr />\n<router-outlet></router-outlet>"
+module.exports = "<app-header></app-header>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -1889,13 +2188,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var WcTeamsComponent = /** @class */ (function () {
-    function WcTeamsComponent(teamSrv) {
-        this.teamSrv = teamSrv;
+    function WcTeamsComponent(_teamSrv) {
+        this._teamSrv = _teamSrv;
         this.dataTeam = [];
     }
     WcTeamsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.teamSrv.getTeams().subscribe(function (res) {
+        this._teamSrv.getTeams().subscribe(function (res) {
             _this.dataTeam = res;
         });
     };
@@ -1936,10 +2235,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_fifa_dashboard_fifa_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./containers/fifa-dashboard/fifa-dashboard.component */ "./src/app/fifaApp/containers/fifa-dashboard/fifa-dashboard.component.ts");
 /* harmony import */ var _containers_line_up_line_up_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./containers/line-up/line-up.component */ "./src/app/fifaApp/containers/line-up/line-up.component.ts");
 /* harmony import */ var _containers_wc_teams_wc_teams_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./containers/wc-teams/wc-teams.component */ "./src/app/fifaApp/containers/wc-teams/wc-teams.component.ts");
-/* harmony import */ var _components_teams_teams_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/teams/teams.component */ "./src/app/fifaApp/components/teams/teams.component.ts");
-/* harmony import */ var _components_starters_starters_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/starters/starters.component */ "./src/app/fifaApp/components/starters/starters.component.ts");
-/* harmony import */ var _components_bench_bench_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/bench/bench.component */ "./src/app/fifaApp/components/bench/bench.component.ts");
-/* harmony import */ var _containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./containers/reports/reports.component */ "./src/app/fifaApp/containers/reports/reports.component.ts");
+/* harmony import */ var _containers_add_data_add_data_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./containers/add-data/add-data.component */ "./src/app/fifaApp/containers/add-data/add-data.component.ts");
+/* harmony import */ var _containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./containers/reports/reports.component */ "./src/app/fifaApp/containers/reports/reports.component.ts");
+/* harmony import */ var _components_teams_teams_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/teams/teams.component */ "./src/app/fifaApp/components/teams/teams.component.ts");
+/* harmony import */ var _components_starters_starters_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/starters/starters.component */ "./src/app/fifaApp/components/starters/starters.component.ts");
+/* harmony import */ var _components_bench_bench_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/bench/bench.component */ "./src/app/fifaApp/components/bench/bench.component.ts");
+/* harmony import */ var _components_team_form_team_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/team-form/team-form.component */ "./src/app/fifaApp/components/team-form/team-form.component.ts");
+/* harmony import */ var _components_pl_form_pl_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pl-form/pl-form.component */ "./src/app/fifaApp/components/pl-form/pl-form.component.ts");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/fifaApp/components/header/header.component.ts");
 
 
 
@@ -1959,6 +2262,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var ChallengeDashboardModule = /** @class */ (function () {
     function ChallengeDashboardModule() {
     }
@@ -1966,12 +2273,16 @@ var ChallengeDashboardModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _containers_fifa_dashboard_fifa_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["FifaDashboardComponent"],
-                _components_teams_teams_component__WEBPACK_IMPORTED_MODULE_12__["TeamsComponent"],
+                _components_teams_teams_component__WEBPACK_IMPORTED_MODULE_14__["TeamsComponent"],
                 _containers_line_up_line_up_component__WEBPACK_IMPORTED_MODULE_10__["LineUpComponent"],
-                _components_starters_starters_component__WEBPACK_IMPORTED_MODULE_13__["StartersComponent"],
-                _components_bench_bench_component__WEBPACK_IMPORTED_MODULE_14__["BenchComponent"],
+                _components_starters_starters_component__WEBPACK_IMPORTED_MODULE_15__["StartersComponent"],
+                _components_bench_bench_component__WEBPACK_IMPORTED_MODULE_16__["BenchComponent"],
                 _containers_wc_teams_wc_teams_component__WEBPACK_IMPORTED_MODULE_11__["WcTeamsComponent"],
-                _containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_15__["ReportsComponent"]
+                _containers_reports_reports_component__WEBPACK_IMPORTED_MODULE_13__["ReportsComponent"],
+                _containers_add_data_add_data_component__WEBPACK_IMPORTED_MODULE_12__["AddDataComponent"],
+                _components_team_form_team_form_component__WEBPACK_IMPORTED_MODULE_17__["TeamFormComponent"],
+                _components_pl_form_pl_form_component__WEBPACK_IMPORTED_MODULE_18__["PlFormComponent"],
+                _components_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -2052,6 +2363,14 @@ var GetPlayerSrv = /** @class */ (function () {
             });
         }));
     };
+    GetPlayerSrv.prototype.addTeam = function (plData) {
+        var _this = this;
+        return new Promise(function (resp, err) {
+            _this.plColl.add(plData).then(function (res) {
+                resp('success');
+            });
+        });
+    };
     GetPlayerSrv = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
@@ -2075,20 +2394,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTeamsSrv", function() { return GetTeamsSrv; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
 
 
 
 
 var GetTeamsSrv = /** @class */ (function () {
-    function GetTeamsSrv(_afs) {
+    function GetTeamsSrv(_afs, _http) {
         this._afs = _afs;
+        this._http = _http;
         this.teamColl = this._afs.collection("teams");
     }
+    GetTeamsSrv.prototype.getCountries = function () {
+        var countries;
+        return this._http.get('https://restcountries.eu/rest/v2/all');
+    };
     GetTeamsSrv.prototype.getTeams = function () {
         return this.teams = this.teamColl.snapshotChanges()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (actions) {
             return actions.map(function (a) {
                 var data = a.payload.doc.data();
                 data.id = a.payload.doc.id;
@@ -2097,11 +2423,17 @@ var GetTeamsSrv = /** @class */ (function () {
         }));
     };
     GetTeamsSrv.prototype.addTeam = function (teamObj) {
-        this.teamColl.add(teamObj);
+        var _this = this;
+        return new Promise(function (resp, err) {
+            _this.teamColl.add(teamObj).then(function (res) {
+                resp(res.id);
+            });
+        });
     };
     GetTeamsSrv = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], GetTeamsSrv);
     return GetTeamsSrv;
 }());
